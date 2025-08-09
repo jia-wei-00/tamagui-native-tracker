@@ -1,9 +1,11 @@
 import { useThemeStore } from "@/store";
-import { Activity, Airplay } from "@tamagui/lucide-icons";
-import { Button, XGroup, XStack, YStack } from "tamagui";
+import { Airplay } from "@tamagui/lucide-icons";
+import { Button, XStack, YStack } from "tamagui";
+import { useAuthStore } from "@/store/useAuth";
 
 export default function TabTwoScreen(props: any) {
   const { setTheme } = useThemeStore();
+  const { signOut } = useAuthStore();
 
   return (
     <YStack padding="$3" gap="$3" {...props}>
@@ -17,34 +19,13 @@ export default function TabTwoScreen(props: any) {
         Dark
       </Button>
       <XStack gap="$2" justifyContent="center">
-        <Button size="$3" theme="accent">
-          Active
+        <Button size="$3" theme="accent" onPress={() => signOut()}>
+          Logout
         </Button>
         <Button size="$3" variant="outlined">
           Outlined
         </Button>
       </XStack>
-      <XStack gap="$2">
-        <Button themeInverse size="$3">
-          Inverse
-        </Button>
-        <Button iconAfter={Activity} size="$3">
-          iconAfter
-        </Button>
-      </XStack>
-      <XGroup>
-        <XGroup.Item>
-          <Button width="50%" size="$2" disabled opacity={0.5}>
-            disabled
-          </Button>
-        </XGroup.Item>
-
-        <XGroup.Item>
-          <Button width="50%" size="$2" chromeless>
-            chromeless
-          </Button>
-        </XGroup.Item>
-      </XGroup>
     </YStack>
   );
 }
