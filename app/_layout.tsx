@@ -13,6 +13,8 @@ import React from "react";
 import "react-native-reanimated";
 import { TamaguiProvider } from "tamagui";
 import * as SplashScreen from "expo-splash-screen";
+import { ToastProvider } from "@tamagui/toast";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,8 +31,12 @@ export default function RootLayout() {
   return (
     <TamaguiProvider config={config} defaultTheme={theme}>
       <ThemeProvider value={theme === "dark" ? DarkTheme : DefaultTheme}>
-        <App />
-        <StatusBar style="auto" />
+        <SafeAreaProvider>
+          <ToastProvider>
+            <App />
+            <StatusBar style="auto" hidden={true} />
+          </ToastProvider>
+        </SafeAreaProvider>
       </ThemeProvider>
     </TamaguiProvider>
   );

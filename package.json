@@ -21,6 +21,8 @@
     "@tamagui/config": "^1.132.15",
     "@tamagui/core": "^1.132.15",
     "@tamagui/lucide-icons": "^1.132.15",
+    "@tamagui/toast": "^1.132.16",
+    "burnt": "^0.13.0",
     "expo": "~53.0.20",
     "expo-blur": "~14.1.5",
     "expo-constants": "~17.1.7",

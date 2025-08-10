@@ -30,7 +30,6 @@ export const useAuthStore = create<AuthStore>((set) => ({
             }
             set({ user: data.user, token: data.session?.access_token });
             set({ isSigningIn: false });
-            console.log("signIn", data);
         } catch (error) {
             console.error(error);
             set({ isSigningIn: false });
